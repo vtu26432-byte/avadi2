@@ -1,60 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Veltech College Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      text-align: center;
-      padding-top: 50px;
-    }
-    .login-container {
-      background-color: #fff;
-      padding: 30px;
-      margin: auto;
-      width: 300px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    .login-container img {
-      width: 150px;
-      margin-bottom: 20px;
-    }
-    .login-container input[type="text"],
-    .login-container input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .login-container input[type="submit"] {
-      background-color: #004080;
-      color: white;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .login-container input[type="submit"]:hover {
-      background-color: #003366;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BlueConnect — Demo Login (NOT Facebook)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:linear-gradient(180deg,#eaf2ff,#f6f9ff);
+    --card:#fff;
+    --primary:#1877f2; /* Facebook-ish blue feel without using logo */
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+    background:var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    color:#111827;
+  }
+  .wrap{
+    width:100%;
+    max-width:980px;
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:28px;
+    align-items:center;
+  }
+  .left{
+    padding:24px;
+  }
+  h1{margin:0 0 10px;font-size:34px}
+  p.lead{color:var(--muted);margin:0 0 14px}
+
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(15,23,42,0.08);
+  }
+
+  /* logo row */
+  .logo-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .brand-name{font-weight:700}
+  .demo-badge{
+    margin-left:auto;
+    background:#fff3f3;
+    color:#e02424;
+    border-radius:999px;
+    padding:6px 10px;
+    font-weight:700;
+    font-size:12px;
+  }
+
+  form{margin-top:6px}
+  label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px}
+  input[type="text"], input[type="password"]{
+    width:100%;
+    padding:12px 14px;
+    border-radius:8px;
+    border:1px solid #e6e9ef;
+    font-size:15px;
+  }
+  input:focus{outline:none;box-shadow:0 8px 20px rgba(24,119,242,0.12);border-color:var(--primary)}
+  .primary{
+    width:100%;
+    margin-top:14px;
+    padding:12px;
+    background:var(--primary);
+    color:#fff;
+    border:0;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .muted-center{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+  .small{font-size:12px;color:#9aa3b2;margin-top:8px;text-align:center}
+
+  /* decorative large mock logo on left */
+  .big-logo{
+    width:160px;height:160px;border-radius:22px;
+    background:linear-gradient(180deg,#6ea6ff,var(--primary));
+    display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:34px;
+    box-shadow:0 12px 36px rgba(24,119,242,0.15);
+  }
+
+  @media(max-width:920px){
+    .wrap{grid-template-columns:1fr}
+    .left{order:2}
+  }
+</style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="left">
+      <div class="big-logo" aria-hidden="true">BC</div>
+      <h1>Stay connected with people</h1>
+      <p class="lead">A clean demo login layout inspired by common social login interfaces. This is a safe mock — not connected to Facebook or any real account system.</p>
+      <div class="card" style="margin-top:18px;">
+        <div style="font-weight:700">Design notes</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:8px">
+          Use this layout for prototypes, usability tests, and styling practice. Do not use real credentials here.
+        </div>
+      </div>
+    </div>
 
-  <div class="login-container">
-    <img src="veltech-image.jpg" alt="Veltech Logo">
-    <h2>College Login</h2>
-    <form action="/login" method="post">
-      <input type="text" name="username" placeholder="Username" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
-      <input type="submit" value="Login">
-    </form>
+    <div class="card" role="region" aria-labelledby="login-title">
+      <div class="logo-row">
+        <!-- Original small brand mark (SVG) — not Facebook -->
+        <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#1877f2"/>
+          <path d="M14 30c6-8 14-10 20-6-6-2-12-3-18-9-2 6-4 12-2 15z" fill="white" opacity="0.95"/>
+        </svg>
+        <div class="brand-name">BlueConnect</div>
+        <div class="demo-badge">DEMO — NOT FACEBOOK</div>
+      </div>
+
+      <h2 id="login-title" style="margin:0 0 12px 0">Sign in</h2>
+
+      <form id="demoForm" onsubmit="return demoSubmit(event)">
+        <label for="user">Email or phone</label>
+        <input id="user" type="text" autocomplete="username" placeholder="you@example.com" required>
+
+        <label for="pw">Password</label>
+        <input id="pw" type="password" autocomplete="current-password" placeholder="••••••••" required>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+          <label style="font-size:13px;color:var(--muted)"><input type="checkbox" style="margin-right:8px">Keep me signed in</label>
+          <button type="button" style="background:none;border:none;color:var(--primary);font-weight:700;cursor:pointer" onclick="alert('Demo only — no recovery available')">Forgot?</button>
+        </div>
+
+        <button class="primary" type="submit">Log In</button>
+      </form>
+
+      <div class="muted-center">or</div>
+
+      <button onclick="alert('Demo create account — not connected to backend')" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid #e6e9ef;background:white;cursor:pointer">Create demo account</button>
+
+      <div class="small">This is a prototype UI. Do not enter real credentials.</div>
+    </div>
   </div>
 
+<script>
+  function demoSubmit(e){
+    e.preventDefault();
+    const u = document.getElementById('user').value.trim() || '(empty)';
+    const pw = document.getElementById('pw').value ? '●●●●●' : '(empty)';
+    alert('DEMO NOTICE — This is a prototype page and does not authenticate.\\n\\nEntered:\\n' + u + '\\n' + pw);
+    return false;
+  }
+</script>
 </body>
 </html>
